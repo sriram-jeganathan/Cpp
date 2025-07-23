@@ -68,9 +68,10 @@ To pass a variable through the cout statement, we must use the specified variabl
 ```
 #include <iostream>
 using namespace std;
+
 int main() {
   int x = 81;
-  cout << "%d is a square number" << x;
+  cout << x << " is a square number";
   return 0;
 }
 ```
