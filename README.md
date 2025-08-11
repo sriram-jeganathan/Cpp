@@ -87,3 +87,33 @@ int main() {
   return 0;
 }
 ```
+
+---
+
+What is a class member variable?
+<pre>
+- class variables are static variables declared within a class.
+- class variables are common for all the objects created out of that class.
+- all the objects of the class share the same static variable.
+- class members can be declared in public/private/protected sections within a class decleration in header files.
+- static variables of a class must be initialized in the global scope within the source file ( .cpp, .c ) of the class declared in header file.
+  Examples:
+- When we want to find total number of objects created out of class, we can use class member
+</pre>
+
+What is a member variable?
+<pre>
+- In C++, member variables are declared within a class in header files.
+- member variables are also called instance variables or object variables.
+- every object of the class will have it's own member variables.
+- Let's say we create 3 instances of the same class, when we modify a member variable from instance 1, it will not reflect in instance 2 or instance 3.
+- member variables can be declared in public/private/protected sections within a class decleration in header files.
+</pre>
+
+What is a class member function?
+<pre>
+- class member function is a static funtion declared within a class header file.
+- class member function is common for all objects of the class.
+- they can be accessed using class name, scope resolution, operator followed by static member function.
+- for instance, in myclass, lets say there is a static function f1 declared, it can be accessed in source file as myclass::f1()
+</pre>
