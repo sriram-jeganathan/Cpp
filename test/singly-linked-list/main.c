@@ -51,7 +51,7 @@ int main ( void ) {
     forwardPrint ( list );
     printf ( "Node Deleted:\n" );
     deleteNode ( list, 110 );
-    fowardPrint ( list );
+    forwardPrint ( list );
     printf ( "\n" );
 
     // merging 2 lists
@@ -71,9 +71,10 @@ int main ( void ) {
     sort ( list );
     forwardPrint ( list );
 
+    freeList ( list );
+    freeList ( list2 );
     return 0;
 }
 
 /*
-void freeList ( List* );
 */

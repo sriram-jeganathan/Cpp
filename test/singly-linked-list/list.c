@@ -128,6 +128,7 @@ void insertMiddle ( List *list, int pos, int x ) {
         count++;
     }
 
+    
     temp->next = newNode;
     newNode->next = current;
     return;
@@ -154,6 +155,7 @@ void deleteNode ( List *list, int number ) {
         }
         current = current->next;
     }
+    Node *temp = NULL;
     temp->next = current->next;
     current->data = 0;
     current->next = NULL;
@@ -178,10 +180,10 @@ void sort ( List *list ) {
 	while ( NULL != outer ) {
 		inner = list->head;
 		while ( NULL != inner ) {
-			if ( inner->number > outer->number ) {
-				temp->number = inner->number;
-				inner->number = outer->number;
-				outer->number = temp->number;
+			if ( inner->data > outer->data ) {
+				temp->data = inner->data;
+				inner->data = outer->data;
+				outer->data = temp->data;
 			}
 			inner = inner->next;
 		}
@@ -189,6 +191,15 @@ void sort ( List *list ) {
 	}
 }
 
-void freeList ( List *list ) {
+void free_list(List *list) {
+    Node *current = list->head;
+    Node *temp;
 
+    while (current != NULL) {
+        temp = current;
+        current = current->next; 
+        free(temp);
+    }
+
+    free(list);
 }
