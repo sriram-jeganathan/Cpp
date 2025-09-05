@@ -115,11 +115,12 @@ void insertMiddle ( List *list, int pos, int x ) {
     newNode->data = x;
     newNode->next = NULL;
     int count = 0;
+    Node *temp = NULL;
 
     Node *current = list->head;
     while ( NULL != current ) {
         if ( current->next->data == x ) {
-            Node *temp = current;
+            temp = current;
         }
         if ( count == pos ) {
             break;
@@ -144,24 +145,37 @@ void insertTail ( List *list, int x ) {
     return;
 }
 
-void deleteNode ( List *list, int number ) {
+void deleteNode(List *list, int number) {
+    if (list->head == NULL) {
+        return;
+    }
+
     Node *current = list->head;
-    while ( current != NULL ) {
-        if ( current->next->data == number ) {
-            Node *temp = current;
-        }
-        if ( current->data == number ) {
-            break;
-        }
+    Node *prev = NULL;
+
+    while (current != NULL && current->data != number) {
+        prev = current;
         current = current->next;
     }
-    Node *temp = NULL;
-    temp->next = current->next;
-    current->data = 0;
-    current->next = NULL;
+
+    if (current == NULL) {
+        return; 
+    }
+
+    if (prev == NULL) {
+        list->head = current->next;
+        if (current == list->tail) {
+            list->tail = NULL; 
+        }
+    } else {
+        prev->next = current->next;
+        if (current == list->tail) {
+            list->tail = prev; 
+        }
+    }
+
     free(current);
-    return;
-}  
+}
 
 void mergeList ( List *list1, List *list2 ) {
     Node *current = list2->head;
@@ -191,7 +205,7 @@ void sort ( List *list ) {
 	}
 }
 
-void free_list(List *list) {
+void freeList(List *list) {
     Node *current = list->head;
     Node *temp;
 

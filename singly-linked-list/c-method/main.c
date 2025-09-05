@@ -4,7 +4,7 @@ int main ( void ) {
     List* list = createList ();
 
     // adding elements to one linked list
-    for ( int i = 10; i < 110; i += 10 ) {
+    for ( int i = 10; i < 55; i += 10 ) {
         addNode ( list, i );
     }
 
@@ -56,7 +56,7 @@ int main ( void ) {
 
     // merging 2 lists
     List *list2 = createList ();
-    for ( int i = 5; i < 110; i+=10 ) {
+    for ( int i = 5; i < 60; i+=10 ) {
         addNode ( list2, i );
     }
     printf ( "List 2:\n" );
