@@ -65,9 +65,12 @@ void insertMiddle ( List *list, int pos, int x ) {
     Node *newNode = createNode ( x ); 
     int count = 1;
     Node *current = list->head;
+    Node *prev = NULL;
 
     while ( NULL != current ) {
-        if ( current->next->data 
+        if ( current->nex>t->data == x ) {
+            prev = current;
+        }
         if ( count == pos ) {
             break;
         }
@@ -77,21 +80,66 @@ void insertMiddle ( List *list, int pos, int x ) {
     }
     
     if ( count == pos ) {
-        // write code here
-    } else {
-        printf ( "%d does not exist in List", x );
+        prev->next = newNode;
+        newNode->previous = prev;
+        newNode->next = current;
+        current->previous = newNode;
     }
-
-
 }
 
+
+void insertTail ( List *list, int x ) {
+    Node *newNode = malloc ( sizeof ( Node ) );
+    newNode->data = x;
+    newNode->next = NULL;
+    newNode->previous = NULL;
+
+    list->tail->next = newNode;
+    newNode->previous = list->tail;
+    list->tail = newNode;
+    return;
+}
+
+void searchNode ( List *list, int x ) {
+    Node *current = list->head;
+    int count = 0;
+
+    while ( NULL != current ) {
+        if ( current->data == x ) {
+            printf ( "%d exists in the list\n", x );
+            count = 1;
+        }
+        current = current->next;
+    }
+    if ( count == 0 ) {
+        printf ( "%d doesnt in the list\n", count );
+        return;
+    }
+}
+
+int count ( List *list ) {
+    Node *current = list->head;
+    int count = 1;
+
+    while ( current != NULL ) {
+        count++;
+        current = current->next;
+    }
+    return count;
+}
+
+void mergeList ( List *list1, List *list2 ) {
+    Node *current = list2->head;
+
+    while ( NULL != current ) {
+        addNode ( list1, list2->data );
+        current = current->next;
+    }
+    list->tail = current;
+}
+
+
 /*
-Node* createNode ( void );
-void insertMiddle ( List*, int, int );
-void insertTail ( List*, int );
-void searchNode ( List*, int );
-int count ( List* );
-void mergeList ( List*, List* );
 void sortList ( List* );
 void deleteNode ( List*, int );
 void freeNode ( List* );
