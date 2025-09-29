@@ -23,6 +23,7 @@ void searchNode ( List*, int );
 void insertHead ( List*, int );
 void insertTail ( List*, int );
 void insertMiddle ( List*, int, int );
+List* breakMiddle ( List*, int );
 void mergeList ( List*, List* );
 void sort ( List* );
 void deleteNode ( List*, int );

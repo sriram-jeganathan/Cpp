@@ -186,6 +186,14 @@ void mergeList ( List *list1, List *list2 ) {
     return; 
 }
 
+List* breakMiddle ( List *list, int x ) {
+    Node *current = list->head;
+    int count = 0;
+    while ( NULL != current ) {
+
+    }
+}
+
 void sort ( List *list ) {
 	Node *outer = list->head;
 	Node *inner = list->head;
